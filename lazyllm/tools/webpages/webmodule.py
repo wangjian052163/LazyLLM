@@ -232,7 +232,7 @@ class WebModule(ModuleBase):
                 input = 'lazyllm_files::' + json.dumps({'text': string, 'files': files})
             else:
                 input = string
-            history = chat_history[:-1] if use_context and len(chat_history) > 1 else None
+            history = chat_history[:-1] if use_context and len(chat_history) > 1 else list()
 
             for k, v in zip(self.ckeys, args):
                 if k[0] not in globals['global_parameters']: globals['global_parameters'][k[0]] = dict()
@@ -240,7 +240,7 @@ class WebModule(ModuleBase):
 
             if use_context:
                 for h in self.history:
-                    if h not in globals['chat_history']: globals['chat_history'][h] = dict()
+                    if h not in globals['chat_history']: globals['chat_history'][h] = list()
                     globals['chat_history'][h] = history
             result = self.m(input)
 
