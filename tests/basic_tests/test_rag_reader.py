@@ -44,7 +44,7 @@ class TestRagReader(object):
         docs = []
         for doc in reader():
             docs.append(doc)
-        assert len(docs) == 22
+        assert len(docs) == 23
 
     def test_register_local_reader(self):
         self.doc1.add_reader("**/*.yml", processYml)
