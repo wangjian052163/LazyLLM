@@ -99,8 +99,6 @@ jobs:
         shell: bash
         run: |
           git clone https://$GITHUB_TOKEN@github.com/wangjian052163/LazyLLM-Data.git D:/a/LazyLLM/data
-          Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
-          irm get.scoop.sh | iex
           scoop install ffmpeg
           pip install -r tests/requirements.txt
           export LAZYLLM_DATA_PATH=D:/a/LazyLLM/data
