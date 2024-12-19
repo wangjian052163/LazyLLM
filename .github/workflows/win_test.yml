@@ -98,7 +98,7 @@ jobs:
       - name: basic_tests
         shell: bash
         run: |
-          git clone https://$GITHUB_TOKEN@github.com/LazyAGI/LazyLLM-Data.git D:/a/LazyLLM/data
+          git clone https://$GITHUB_TOKEN@github.com/wangjian052163/LazyLLM-Data.git D:/a/LazyLLM/data
           pip install -r tests/requirements.txt
           export LAZYLLM_DATA_PATH=D:/a/LazyLLM/data
           python -m pytest -m "not skip_on_win" -v --reruns=2 tests/basic_tests
