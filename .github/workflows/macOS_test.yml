@@ -89,6 +89,7 @@ jobs:
       - name: basic_tests
         run : |
          git clone https://$GITHUB_TOKEN@github.com/wangjian052163/LazyLLM-Data.git /tmp/LazyLLM/data
+         brew install ffmpeg
          pip install -r tests/requirements.txt
          export LAZYLLM_DATA_PATH=/tmp/lazyllm/data
          python -m pytest -v  --reruns=2 tests/basic_tests/
