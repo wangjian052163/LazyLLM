@@ -321,7 +321,8 @@ def barrier(args): _barr.impl.wait(); return args
 
 def _split_input(input: Union[Tuple, List], flag: Optional[Union[int, List]] = None):
     if flag is None or isinstance(flag, int):
-        if isinstance(flag, int) and flag > 1 and isinstance(input, package) and len(input) == 1:
+        if (isinstance(flag, int) and flag > 1 and isinstance(input, package) and len(input) == 1) or \
+           (isinstance(input, tuple) and len(input) == 1 and isinstance(input[0], (list, tuple))):
             input = input[0]
         assert isinstance(input, (tuple, list)), (
             f'Only tuple and list input can be split automatically, your input is {input} <{type(input)}>')
